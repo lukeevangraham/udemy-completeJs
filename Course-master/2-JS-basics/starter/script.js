@@ -366,7 +366,6 @@
 // console.log("TIPS: ", allTips)
 // console.log("FINAL AMOUNTS: ", allFinalAmounts)
 
-
 // // OBJECTS AND PROPERTIES
 
 // // Object literal
@@ -389,7 +388,6 @@
 
 // console.log(john)
 
-
 // // new Object syntax
 // var jane = new Object();
 // jane.firstName = 'Jane';
@@ -397,7 +395,6 @@
 // jane['lastName'] = 'Smith'
 
 // console.log(jane)
-
 
 // // OBJECTS AND METHODS
 
@@ -416,3 +413,34 @@
 // // john.calcAge()
 
 // console.log(john)
+
+let john = {
+  name: "John",
+  massInKg: 92,
+  heightInMeters: 1.95,
+  calculateBMI: function () {
+    this.BMI = this.massInKg / (this.heightInMeters * this.heightInMeters);
+    return this.BMI
+  },
+};
+
+let mark = {
+  name: "Mark",
+  massInKg: 78,
+  heightInMeters: 1.69,
+  calculateBMI: function () {
+    this.BMI = this.massInKg / (this.heightInMeters * this.heightInMeters);
+    return this.BMI
+  },
+};
+
+// john.calculateBMI();
+// mark.calculateBMI();
+
+if (john.calculateBMI() > mark.calculateBMI()) {
+  console.log("John: ", john.BMI);
+} else if (john.BMI < mark.BMI) {
+  console.log("Mark: ", mark.BMI);
+} else {
+  console.log("John and Mark have the same BMI", john.BMI)
+}
