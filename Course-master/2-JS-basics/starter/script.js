@@ -135,233 +135,284 @@
 //   console.log(firstName + " is a man.");
 // }
 
-// TERNARY OPERATOR AND SWITCH STATEMENTS
+// // TERNARY OPERATOR AND SWITCH STATEMENTS
 
-var firstName = "John";
-// var age = 16;
+// var firstName = "John";
+// // var age = 16;
 
-age > 18
-  ? console.log(firstName + " drinks beer.")
-  : console.log(firstName + " drinks juice.");
+// age > 18
+//   ? console.log(firstName + " drinks beer.")
+//   : console.log(firstName + " drinks juice.");
 
-var drink = age >= 18 ? "beer" : "juice";
+// var drink = age >= 18 ? "beer" : "juice";
 
-console.log(drink);
+// console.log(drink);
 
-// Switch statment
-var job = "instructor";
+// // Switch statment
+// var job = "instructor";
 
-switch (job) {
-  case "teacher":
-  case "instructor":
-    console.log(firstName + " teaches kids how to code.");
-    break;
-  case "driver":
-    console.log(firstName + " drives an uber in Lisbon.");
-    break;
-  case "designer":
-    console.log(firstName + " designs beautiful website");
-    break;
-  default:
-    console.log(firstName + " does something else.");
-}
+// switch (job) {
+//   case "teacher":
+//   case "instructor":
+//     console.log(firstName + " teaches kids how to code.");
+//     break;
+//   case "driver":
+//     console.log(firstName + " drives an uber in Lisbon.");
+//     break;
+//   case "designer":
+//     console.log(firstName + " designs beautiful website");
+//     break;
+//   default:
+//     console.log(firstName + " does something else.");
+// }
 
-var age = 22;
+// var age = 22;
 
-switch (true) {
-  case age < 13:
-    console.log(firstName + " is a boy.");
-    break;
-  case age < 20 && age >= 13:
-    console.log(firstName + " is a teenager.");
-    break;
-  case age >= 20 && age < 30:
-    console.log(firstName + " is a young man.");
-    break;
-  default:
-    console.log(firstName + " is a man.");
-}
+// switch (true) {
+//   case age < 13:
+//     console.log(firstName + " is a boy.");
+//     break;
+//   case age < 20 && age >= 13:
+//     console.log(firstName + " is a teenager.");
+//     break;
+//   case age >= 20 && age < 30:
+//     console.log(firstName + " is a young man.");
+//     break;
+//   default:
+//     console.log(firstName + " is a man.");
+// }
 
-// falsy values: undefined, null, 0, '', NaN
-// truthy values: NOT falsy values
+// // falsy values: undefined, null, 0, '', NaN
+// // truthy values: NOT falsy values
 
-let height;
+// let height;
 
-height = 23;
+// height = 23;
 
-if (height || height === 0) {
-  console.log("Variable is defined");
-} else {
-  console.log("Variable has NOT been defined");
-}
+// if (height || height === 0) {
+//   console.log("Variable is defined");
+// } else {
+//   console.log("Variable has NOT been defined");
+// }
 
-// Equality operators
-if (height === "23") {
-  console.log("The == operator does type coercion!");
-}
+// // Equality operators
+// if (height === "23") {
+//   console.log("The == operator does type coercion!");
+// }
 
-// CODING CHALLENGE 2
-let johnScores = [89, 120, 103];
-let mikeScores = [116, 94, 123];
-let maryScores = [97, 134, 105];
+// // CODING CHALLENGE 2
+// let johnScores = [89, 120, 103];
+// let mikeScores = [116, 94, 123];
+// let maryScores = [97, 134, 105];
 
-function calculateAverages(scores) {
-  let average = 0;
-  scores.forEach((score) => {
-    average += score;
-  });
-  return average / scores.length;
-}
+// function calculateAverages(scores) {
+//   let average = 0;
+//   scores.forEach((score) => {
+//     average += score;
+//   });
+//   return average / scores.length;
+// }
 
-console.log("JOHN'S SCORES: ", calculateAverages(johnScores));
-console.log("MIKE'S SCORES: ", calculateAverages(mikeScores));
-console.log("MARY'S SCORES: ", calculateAverages(maryScores));
+// console.log("JOHN'S SCORES: ", calculateAverages(johnScores));
+// console.log("MIKE'S SCORES: ", calculateAverages(mikeScores));
+// console.log("MARY'S SCORES: ", calculateAverages(maryScores));
 
-switch (true) {
-  case calculateAverages(johnScores) === calculateAverages(mikeScores) &&
-    calculateAverages(johnScores) === calculateAverages(maryScores):
-    console.log(
-      "All teams tied with an average score of ",
-      calculateAverages(johnScores)
-    );
-    break;
-  case calculateAverages(johnScores) > calculateAverages(mikeScores) &&
-    calculateAverages(johnScores) > calculateAverages(maryScores):
-    console.log(
-      "John wins with an average score of: ",
-      calculateAverages(johnScores)
-    );
-    break;
-  case calculateAverages(johnScores) < calculateAverages(mikeScores) &&
-    calculateAverages(maryScores) < calculateAverages(mikeScores):
-    console.log(
-      "Mike wins with an average score of: ",
-      calculateAverages(mikeScores)
-    );
-    break;
-  case calculateAverages(johnScores) < calculateAverages(maryScores) &&
-    calculateAverages(mikeScores) < calculateAverages(maryScores):
-    console.log(
-      "Mary wins with an average score of: ",
-      calculateAverages(maryScores)
-    );
-    break;
-  default:
-    break;
-}
+// switch (true) {
+//   case calculateAverages(johnScores) === calculateAverages(mikeScores) &&
+//     calculateAverages(johnScores) === calculateAverages(maryScores):
+//     console.log(
+//       "All teams tied with an average score of ",
+//       calculateAverages(johnScores)
+//     );
+//     break;
+//   case calculateAverages(johnScores) > calculateAverages(mikeScores) &&
+//     calculateAverages(johnScores) > calculateAverages(maryScores):
+//     console.log(
+//       "John wins with an average score of: ",
+//       calculateAverages(johnScores)
+//     );
+//     break;
+//   case calculateAverages(johnScores) < calculateAverages(mikeScores) &&
+//     calculateAverages(maryScores) < calculateAverages(mikeScores):
+//     console.log(
+//       "Mike wins with an average score of: ",
+//       calculateAverages(mikeScores)
+//     );
+//     break;
+//   case calculateAverages(johnScores) < calculateAverages(maryScores) &&
+//     calculateAverages(mikeScores) < calculateAverages(maryScores):
+//     console.log(
+//       "Mary wins with an average score of: ",
+//       calculateAverages(maryScores)
+//     );
+//     break;
+//   default:
+//     break;
+// }
 
-// FUNCTIONS
+// // FUNCTIONS
 
-function calculateAge(birthYear) {
-  return 2018 - birthYear;
-}
+// function calculateAge(birthYear) {
+//   return 2018 - birthYear;
+// }
 
-let ageJohn = calculateAge(1990);
-let ageMike = calculateAge(1948);
-let ageJane = calculateAge(1969);
+// let ageJohn = calculateAge(1990);
+// let ageMike = calculateAge(1948);
+// let ageJane = calculateAge(1969);
 
-console.log(ageJohn, ageMike, ageJane);
+// console.log(ageJohn, ageMike, ageJane);
 
-function yearsUntilRetirement(year, firstName) {
-  var age = calculateAge(year);
-  var retirement = 65 - age;
+// function yearsUntilRetirement(year, firstName) {
+//   var age = calculateAge(year);
+//   var retirement = 65 - age;
 
-  if (retirement > 0) {
-    console.log(firstName + " retires in " + retirement + " years.");
-  } else {
-    console.log(firstName + " is already retired.");
-  }
-}
+//   if (retirement > 0) {
+//     console.log(firstName + " retires in " + retirement + " years.");
+//   } else {
+//     console.log(firstName + " is already retired.");
+//   }
+// }
 
-yearsUntilRetirement(1990, "John");
-yearsUntilRetirement(1948, "Mike");
-yearsUntilRetirement(1969, "Jane");
+// yearsUntilRetirement(1990, "John");
+// yearsUntilRetirement(1948, "Mike");
+// yearsUntilRetirement(1969, "Jane");
 
-// FUNCTION STATEMENTS AND EXPRESSIONS
+// // FUNCTION STATEMENTS AND EXPRESSIONS
 
-//function declaration
-// function whatDoYouDo(job, firstName) {}
+// //function declaration
+// // function whatDoYouDo(job, firstName) {}
 
-// function expression
-let whatDoYouDo = function (job, firstName) {
-  switch (job) {
-    case "teacher":
-      return firstName + " teaches kids how to code";
-    case "driver":
-      return firstName + " drives a cab in Lisbon.";
-    case "designer":
-      return firstName + " designs beautiful websites.";
-    default:
-      return firstName + " does something else.";
-  }
-};
+// // function expression
+// let whatDoYouDo = function (job, firstName) {
+//   switch (job) {
+//     case "teacher":
+//       return firstName + " teaches kids how to code";
+//     case "driver":
+//       return firstName + " drives a cab in Lisbon.";
+//     case "designer":
+//       return firstName + " designs beautiful websites.";
+//     default:
+//       return firstName + " does something else.";
+//   }
+// };
 
-console.log(whatDoYouDo("teacher", "John"));
-console.log(whatDoYouDo("designer", "Jane"));
-console.log(whatDoYouDo("retired", "Mark"));
+// console.log(whatDoYouDo("teacher", "John"));
+// console.log(whatDoYouDo("designer", "Jane"));
+// console.log(whatDoYouDo("retired", "Mark"));
 
-// ARRAYS
+// // ARRAYS
 
-// initialize new array
-let names = ["John", "Mark", "Jane"];
-let years = new Array(1990, 1969, 1948);
+// // initialize new array
+// let names = ["John", "Mark", "Jane"];
+// let years = new Array(1990, 1969, 1948);
 
-console.log(names);
-console.log(names.length);
+// console.log(names);
+// console.log(names.length);
 
-// Mutate array data
-names[1] = "Ben";
-names[names.length] = "Mary";
+// // Mutate array data
+// names[1] = "Ben";
+// names[names.length] = "Mary";
 
-console.log(names);
+// console.log(names);
 
-// different data types
-var john = ["John", "Smith", 1990, "designer", false];
+// // different data types
+// var john = ["John", "Smith", 1990, "designer", false];
 
-john.push("blue");
-john.unshift("Mr.");
+// john.push("blue");
+// john.unshift("Mr.");
 
-console.log(john);
+// console.log(john);
 
-john.pop();
-john.pop();
-john.shift();
-console.log(john);
+// john.pop();
+// john.pop();
+// john.shift();
+// console.log(john);
 
-console.log(john.indexOf(23));
+// console.log(john.indexOf(23));
 
-var isDesigner =
-  john.indexOf("designer") === -1
-    ? "John is NOT a designer"
-    : "John IS a designer";
+// var isDesigner =
+//   john.indexOf("designer") === -1
+//     ? "John is NOT a designer"
+//     : "John IS a designer";
 
-console.log(isDesigner);
+// console.log(isDesigner);
 
-// CODING CHALLENGE 3
-let restBills = [124, 48, 268];
-let allTips = [];
-let allFinalAmounts = [];
+// // CODING CHALLENGE 3
+// let restBills = [124, 48, 268];
+// let allTips = [];
+// let allFinalAmounts = [];
 
-let calculateTip = function (bill) {
-  switch (true) {
-    case bill < 50:
-      return bill * 0.2;
-    case bill > 50 && bill < 200:
-      return bill * 0.15;
-    case bill > 200:
-      return bill * 0.1;
-    default:
-      break;
-  }
-};
-console.log("LOOK HERE:", calculateTip(30));
-console.log("LOOK HERE:", calculateTip(250));
-console.log("LOOK HERE:", calculateTip(100));
+// let calculateTip = function (bill) {
+//   switch (true) {
+//     case bill < 50:
+//       return bill * 0.2;
+//     case bill > 50 && bill < 200:
+//       return bill * 0.15;
+//     case bill > 200:
+//       return bill * 0.1;
+//     default:
+//       break;
+//   }
+// };
+// console.log("LOOK HERE:", calculateTip(30));
+// console.log("LOOK HERE:", calculateTip(250));
+// console.log("LOOK HERE:", calculateTip(100));
 
-restBills.forEach(bill => {
-  allTips.push(calculateTip(bill))
-  allFinalAmounts.push(bill + calculateTip(bill))
-});
+// restBills.forEach(bill => {
+//   allTips.push(calculateTip(bill))
+//   allFinalAmounts.push(bill + calculateTip(bill))
+// });
 
-console.log("TIPS: ", allTips)
-console.log("FINAL AMOUNTS: ", allFinalAmounts)
+// console.log("TIPS: ", allTips)
+// console.log("FINAL AMOUNTS: ", allFinalAmounts)
+
+
+// // OBJECTS AND PROPERTIES
+
+// // Object literal
+// var john = {
+//   firstName: 'John',
+//   lastName: 'Smith',
+//   birthYear: 1990,
+//   family: ['Jane', 'Mark', 'Bob', 'Emily'],
+//   job: 'teacher',
+//   isMarried: false
+// };
+
+// console.log(john.firstName)
+// var x = 'birthYear';
+// console.log(john['lastName'])
+// console.log(john[x])
+
+// john.job = 'designer';
+// john['isMarried'] = true;
+
+// console.log(john)
+
+
+// // new Object syntax
+// var jane = new Object();
+// jane.firstName = 'Jane';
+// jane.birthyear = 1969;
+// jane['lastName'] = 'Smith'
+
+// console.log(jane)
+
+
+// // OBJECTS AND METHODS
+
+// var john = {
+//   firstName: 'John',
+//   lastName: 'Smith',
+//   birthYear: 1992,
+//   family: ['Jane', 'Mark', 'Bob', 'Emily'],
+//   job: 'teacher',
+//   isMarried: false,
+//   calcAge: function() {
+//     this.age = 2018 - this.birthYear;
+//   }
+// };
+
+// // john.calcAge()
+
+// console.log(john)
