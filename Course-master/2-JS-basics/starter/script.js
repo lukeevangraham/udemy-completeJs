@@ -485,36 +485,32 @@ var john = ["John", "Smith", 1990, "designer", false];
 
 // CODING CHALLENGE 5
 
-function calcAverage(tips) {
-  let sum = 0;
-  for (let index = 0; index < tips.length; index++) {
-    sum += tips[index];
-    return sum / tips.length;
-  }
-}
+
 
 let calculatorJohn = {
   bills: [124, 48, 268, 180, 42],
-  allTips: [],
-  allTotals: [],
   calc: function () {
+    this.allTips = [];
+    this.allTotals = [];
     for (let index = 0; index < this.bills.length; index++) {
+      let percentage;
+      let bill = this.bills[index];
       switch (true) {
-        case this.bills[index] < 50:
-          this.allTips.push(this.bills[index] * 0.2);
-          this.allTotals.push(this.bills[index] * 1.2);
+        case bill < 50:
+          percentage = .2
           break;
-        case this.bills[index] > 50 && this.bills[index] < 200:
-          this.allTips.push(this.bills[index] * 0.15);
-          this.allTotals.push(this.bills[index] * 1.15);
+        case bill > 50 && bill < 200:
+          percentage = .15
           break;
-        case this.bills[index] > 200:
-          this.allTips.push(this.bills[index] * 0.1);
-          this.allTotals.push(this.bills[index] * 1.1);
+        case bill > 200:
+          percentage = .1
           break;
         default:
           break;
       }
+
+      this.allTips[index] = bill * percentage;
+      this.allTotals[index] = bill + (bill * percentage);
     }
   },
 };
@@ -525,10 +521,10 @@ console.log("All John's tips: ", calculatorJohn.allTips);
 console.log("All John's totals: ", calculatorJohn.allTotals);
 
 let calculatorMark = {
-  bills: [77, 375, 110, 45],
-  allTips: [],
-  allTotals: [],
+  bills: [77, 475, 110, 45],
   calc: function () {
+    this.allTips = [];
+    this.allTotals = [];
     for (let index = 0; index < this.bills.length; index++) {
       switch (true) {
         case this.bills[index] < 100:
@@ -555,8 +551,18 @@ calculatorMark.calc();
 console.log("All Mark's tips: ", calculatorMark.allTips);
 console.log("All Mark's totals: ", calculatorMark.allTotals);
 
-// console.log("John tip AVG: ", calcAverage(calculatorJohn.allTips));
-// console.log("Mark tip AVG: ", calcAverage(calculatorMark.allTips));
+function calcAverage(tips) {
+  let sum = 0;
+  for (let index = 0; index < tips.length; index++) {
+    sum += tips[index];
+  }
+  return sum / tips.length;
+}
+
+calculatorJohn.average = calcAverage(calculatorJohn.allTips);
+calculatorMark.average = calcAverage(calculatorMark.allTips);
+
+console.log(calculatorJohn, calculatorMark)
 
 switch (true) {
   case calcAverage(calculatorJohn.allTips) >
