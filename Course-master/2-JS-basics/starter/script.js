@@ -414,33 +414,77 @@
 
 // console.log(john)
 
-let john = {
-  name: "John",
-  massInKg: 92,
-  heightInMeters: 1.95,
-  calculateBMI: function () {
-    this.BMI = this.massInKg / (this.heightInMeters * this.heightInMeters);
-    return this.BMI
-  },
-};
+// let john = {
+//   name: "John",
+//   massInKg: 92,
+//   heightInMeters: 1.95,
+//   calculateBMI: function () {
+//     this.BMI = this.massInKg / (this.heightInMeters * this.heightInMeters);
+//     return this.BMI
+//   },
+// };
 
-let mark = {
-  name: "Mark",
-  massInKg: 78,
-  heightInMeters: 1.69,
-  calculateBMI: function () {
-    this.BMI = this.massInKg / (this.heightInMeters * this.heightInMeters);
-    return this.BMI
-  },
-};
+// let mark = {
+//   name: "Mark",
+//   massInKg: 78,
+//   heightInMeters: 1.69,
+//   calculateBMI: function () {
+//     this.BMI = this.massInKg / (this.heightInMeters * this.heightInMeters);
+//     return this.BMI
+//   },
+// };
 
-// john.calculateBMI();
-// mark.calculateBMI();
+// // john.calculateBMI();
+// // mark.calculateBMI();
 
-if (john.calculateBMI() > mark.calculateBMI()) {
-  console.log("John: ", john.BMI);
-} else if (john.BMI < mark.BMI) {
-  console.log("Mark: ", mark.BMI);
-} else {
-  console.log("John and Mark have the same BMI", john.BMI)
+// if (john.calculateBMI() > mark.calculateBMI()) {
+//   console.log("John: ", john.BMI);
+// } else if (john.BMI < mark.BMI) {
+//   console.log("Mark: ", mark.BMI);
+// } else {
+//   console.log("John and Mark have the same BMI", john.BMI)
+// }
+
+
+// LOOPS AND ITERATION
+
+// For loop
+
+for (var i = 0; i <= 20; i+=2) {
+  console.log(i)
 }
+
+var john = ["John", "Smith", 1990, "designer", false];
+
+
+// //for loop
+// for (let index = 0; index < john.length; index++) {
+//   console.log(john[index]);
+// }
+
+// // while loop
+// var i = 0;
+// while (i < john.length) {
+//   console.log(john[i])
+//   i++
+// }
+
+// // continue and break statements
+// for (let index = 0; index < john.length; index++) {
+//   if (typeof john[index] !== 'string') continue;
+//   console.log(john[index])
+// }
+
+// for (let index = 0; index < john.length; index++) {
+//   if (typeof john[index] !== 'string') break;
+//   console.log(john[index])
+// }
+
+// // Looping backwards
+// for (let index = john.length - 1; index >= 0; index--) {
+//   console.log(john[index]);  
+// }
+
+
+// CODING CHALLENGE 5
+
