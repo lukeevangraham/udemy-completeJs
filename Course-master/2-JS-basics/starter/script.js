@@ -445,17 +445,15 @@
 //   console.log("John and Mark have the same BMI", john.BMI)
 // }
 
-
 // LOOPS AND ITERATION
 
 // For loop
 
-for (var i = 0; i <= 20; i+=2) {
-  console.log(i)
-}
+// for (var i = 0; i <= 20; i += 2) {
+//   console.log(i);
+// }
 
 var john = ["John", "Smith", 1990, "designer", false];
-
 
 // //for loop
 // for (let index = 0; index < john.length; index++) {
@@ -482,9 +480,93 @@ var john = ["John", "Smith", 1990, "designer", false];
 
 // // Looping backwards
 // for (let index = john.length - 1; index >= 0; index--) {
-//   console.log(john[index]);  
+//   console.log(john[index]);
 // }
-
 
 // CODING CHALLENGE 5
 
+function calcAverage(tips) {
+  let sum = 0;
+  for (let index = 0; index < tips.length; index++) {
+    sum += tips[index];
+    return sum / tips.length;
+  }
+}
+
+let calculatorJohn = {
+  bills: [124, 48, 268, 180, 42],
+  allTips: [],
+  allTotals: [],
+  calc: function () {
+    for (let index = 0; index < this.bills.length; index++) {
+      switch (true) {
+        case this.bills[index] < 50:
+          this.allTips.push(this.bills[index] * 0.2);
+          this.allTotals.push(this.bills[index] * 1.2);
+          break;
+        case this.bills[index] > 50 && this.bills[index] < 200:
+          this.allTips.push(this.bills[index] * 0.15);
+          this.allTotals.push(this.bills[index] * 1.15);
+          break;
+        case this.bills[index] > 200:
+          this.allTips.push(this.bills[index] * 0.1);
+          this.allTotals.push(this.bills[index] * 1.1);
+          break;
+        default:
+          break;
+      }
+    }
+  },
+};
+
+calculatorJohn.calc();
+
+console.log("All John's tips: ", calculatorJohn.allTips);
+console.log("All John's totals: ", calculatorJohn.allTotals);
+
+let calculatorMark = {
+  bills: [77, 375, 110, 45],
+  allTips: [],
+  allTotals: [],
+  calc: function () {
+    for (let index = 0; index < this.bills.length; index++) {
+      switch (true) {
+        case this.bills[index] < 100:
+          this.allTips.push(this.bills[index] * 0.2);
+          this.allTotals.push(this.bills[index] * 1.2);
+          break;
+        case this.bills[index] > 100 && this.bills[index] < 300:
+          this.allTips.push(this.bills[index] * 0.1);
+          this.allTotals.push(this.bills[index] * 1.1);
+          break;
+        case this.bills[index] > 300:
+          this.allTips.push(this.bills[index] * 0.25);
+          this.allTotals.push(this.bills[index] * 1.25);
+          break;
+        default:
+          break;
+      }
+    }
+  },
+};
+
+calculatorMark.calc();
+
+console.log("All Mark's tips: ", calculatorMark.allTips);
+console.log("All Mark's totals: ", calculatorMark.allTotals);
+
+// console.log("John tip AVG: ", calcAverage(calculatorJohn.allTips));
+// console.log("Mark tip AVG: ", calcAverage(calculatorMark.allTips));
+
+switch (true) {
+  case calcAverage(calculatorJohn.allTips) >
+    calcAverage(calculatorMark.allTips):
+    console.log("John's family paid the most");
+    break;
+  case calcAverage(calculatorJohn.allTips) <
+    calcAverage(calculatorMark.allTips):
+    console.log("Mark's family paid the most");
+    break;
+  default:
+    break;
+}
