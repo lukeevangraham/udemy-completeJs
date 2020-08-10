@@ -9,7 +9,7 @@ GAME RULES:
 
 */
 
-var scores, roundScore, activePlayer, gamePlaying;
+var scores, roundScore, activePlayer, gamePlaying, previousRoll;
 
 init();
 
@@ -23,8 +23,21 @@ document.querySelector(`.btn-roll`).addEventListener("click", function () {
     diceDOM.style.display = "block";
     diceDOM.src = "dice-" + dice + ".png";
 
+    console.log("DICE: ", dice)
+
     // 3 Update the round score IF the rolled number was NOT a 1
     if (dice !== 1) {
+        if (dice === 6 && previousRoll === 6) {
+            // remove active players ENTIRE SCORE
+            scores[activePlayer] = 0
+
+            // update UI
+            document.getElementById("score-" + activePlayer).textContent = "0";
+
+            // next player
+            nextPlayer();
+        }
+        previousRoll = dice;
       //Add score
       roundScore += dice;
       document.querySelector(
@@ -92,6 +105,7 @@ function nextPlayer() {
   //Next player
   activePlayer === 0 ? (activePlayer = 1) : (activePlayer = 0);
   roundScore = 0;
+  previousRoll = undefined;
 
   document.getElementById("current-0").textContent = "0";
   document.getElementById("current-1").textContent = "0";
