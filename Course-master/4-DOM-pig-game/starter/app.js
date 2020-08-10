@@ -9,9 +9,10 @@ GAME RULES:
 
 */
 
-var scores, roundScore, activePlayer, gamePlaying, previousRoll;
+var scores, roundScore, activePlayer, gamePlaying, previousRoll, goalScore;
 
 init();
+goalScore = 100;
 
 document.querySelector(`.btn-roll`).addEventListener("click", function () {
   if (gamePlaying) {
@@ -23,21 +24,19 @@ document.querySelector(`.btn-roll`).addEventListener("click", function () {
     diceDOM.style.display = "block";
     diceDOM.src = "dice-" + dice + ".png";
 
-    console.log("DICE: ", dice)
-
     // 3 Update the round score IF the rolled number was NOT a 1
     if (dice !== 1) {
-        if (dice === 6 && previousRoll === 6) {
-            // remove active players ENTIRE SCORE
-            scores[activePlayer] = 0
+      if (dice === 6 && previousRoll === 6) {
+        // remove active players ENTIRE SCORE
+        scores[activePlayer] = 0;
 
-            // update UI
-            document.getElementById("score-" + activePlayer).textContent = "0";
+        // update UI
+        document.getElementById("score-" + activePlayer).textContent = "0";
 
-            // next player
-            nextPlayer();
-        }
-        previousRoll = dice;
+        // next player
+        nextPlayer();
+      }
+      previousRoll = dice;
       //Add score
       roundScore += dice;
       document.querySelector(
@@ -50,31 +49,37 @@ document.querySelector(`.btn-roll`).addEventListener("click", function () {
 });
 
 document.querySelector(`.btn-hold`).addEventListener(`click`, function () {
-    if (gamePlaying) {
-        // add current score to player's gloal score
-  scores[activePlayer] += roundScore;
+  if (gamePlaying) {
+    // add current score to player's gloal score
+    scores[activePlayer] += roundScore;
 
-  // Update the UI
-  document.querySelector(`#score-` + activePlayer).textContent =
-    scores[activePlayer];
+    // Update the UI
+    document.querySelector(`#score-` + activePlayer).textContent =
+      scores[activePlayer];
 
-  // Check if player won the game
-  if (scores[activePlayer] >= 100) {
-    document.querySelector("#name-" + activePlayer).textContent = "Winner!";
-    document.querySelector(".dice").style.display = "none";
-    document
-      .querySelector(".player-" + activePlayer + "-panel")
-      .classList.add("winner");
-    document
-      .querySelector(".player-" + activePlayer + "-panel")
-      .classList.remove("active");
-    gamePlaying = false;
-  } else {
-    // Next player
-    nextPlayer();
-  }
+    // Check if player won the game
+    if (scores[activePlayer] >= goalScore) {
+      document.querySelector("#name-" + activePlayer).textContent = "Winner!";
+      document.querySelector(".dice").style.display = "none";
+      document
+        .querySelector(".player-" + activePlayer + "-panel")
+        .classList.add("winner");
+      document
+        .querySelector(".player-" + activePlayer + "-panel")
+        .classList.remove("active");
+      gamePlaying = false;
+    } else {
+      // Next player
+      nextPlayer();
     }
+  }
 });
+
+document.querySelector(`.btn-goal-change`).addEventListener(`click`, function() {
+    console.log(document.querySelector(`#goal-entry`).value)
+    goalScore = document.querySelector(`#goal-entry`).value
+    init()
+})
 
 document.querySelector(`.btn-new`).addEventListener(`click`, init);
 

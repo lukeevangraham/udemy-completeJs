@@ -45,6 +45,29 @@ body {
     padding: 100px;
 }
 
+.goal-input {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline;
+}
+
+#goal-entry {
+    width: 40px;
+    padding: 2px;
+}
+
+.btn-goal-change {
+    width: unset;
+    position: relative;
+    left: unset;
+    transform: unset;
+    margin-left: 5px;
+    vertical-align: middle;
+    margin-bottom: 4px;
+}
+
 
 
 /**********************************************
