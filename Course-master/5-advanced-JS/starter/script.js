@@ -262,11 +262,11 @@
 (function () {
   let randomQuestionIndex;
 
-  var Question = function (questionText, answers, rightAnswer) {
+  function Question(questionText, answers, rightAnswer) {
     this.questionText = questionText;
     this.answers = answers;
     this.rightAnswer = rightAnswer;
-  };
+  }
 
   Question.prototype.showQuestion = function () {
     // let randNum = Math.round(Math.random() * 2)
@@ -276,12 +276,25 @@
     }
   };
 
-  Question.prototype.checkAnswer = function (input) {
-    if (input == this.rightAnswer) {
+  Question.prototype.checkAnswer = function (input, callback) {
+    var sc;
+
+    if (input === this.rightAnswer) {
       console.log("THAT'S RIGHT!");
+      sc = callback(true);
     } else {
       console.log("Nope :(");
+      sc = callback(false)
     }
+    this.displayScore(sc)
+  };
+
+  Question.prototype.displayScore = function (score) {
+    console.log(
+      "******************\nYOUR SCORE: ",
+      score,
+      "\n******************"
+    );
   };
 
   var q1 = new Question(
@@ -302,13 +315,32 @@
 
   let questionArray = [q1, q2, q3];
 
-  // console.log(questionArray[Math.round(Math.random() * 2)])
+  function score() {
+    var sc = 0;
+    return function (correct) {
+      if (correct) {
+        sc++;
+      }
+      return sc;
+    };
+  }
 
-  randomQuestionIndex = Math.round(Math.random() * 2);
+  var keepScore = score();
 
-  questionArray[randomQuestionIndex].showQuestion();
-  // questionArray[randomQuestionIndex].showQuestion()
-  let input = prompt("Enter the correct answer: ");
+  function selectAndDisplayQuestion() {
+    randomQuestionIndex = Math.round(Math.random() * 2);
 
-  questionArray[randomQuestionIndex].checkAnswer(input);
+    questionArray[randomQuestionIndex].showQuestion();
+    let input = prompt("Enter the correct answer: ");
+
+    if (input !== "exit") {
+      questionArray[randomQuestionIndex].checkAnswer(
+        parseInt(input),
+        keepScore
+      );
+      selectAndDisplayQuestion();
+    }
+  }
+
+  selectAndDisplayQuestion();
 })();
