@@ -1,3 +1,4 @@
+//////////////////////
 // // Function constructor
 // var john = {
 //   name: "John",
@@ -159,11 +160,11 @@
 // // IIFE
 // // Immediately invoked function expressions
 
-// // function game() {
-// //   var score = Math.random() * 10;
-// //   console.log(score >= 5);
-// // }
-// // game();
+// function game() {
+//   var score = Math.random() * 10;
+//   console.log(score >= 5);
+// }
+// game();
 
 // (function () {
 //   var score = Math.random() * 10;
@@ -173,19 +174,19 @@
 // // console.log(score);
 
 // (function (goodLuck) {
-//     var score = Math.random() * 10;
-//     console.log(score >= 5 - goodLuck);
-//   })(5);
+//   var score = Math.random() * 10;
+//   console.log(score >= 5 - goodLuck);
+// })(5);
 
 // ///////////////////
 // // Closures
 
 // function retirement(retirementAge) {
-//   return function (yearOfBirth) {
-//     var a = " years left until retirement.";
-//     var age = 2016 - yearOfBirth;
-//     console.log(retirementAge - age + a);
-//   };
+//     var a = ' years left until retirement.';
+//     return function(yearOfBirth) {
+//         var age = 2016 - yearOfBirth;
+//         console.log((retirementAge - age) + a);
+//     }
 // }
 
 // var retirementUS = retirement(66);
@@ -196,7 +197,7 @@
 // retirementUS(1990);
 // retirementIceland(1990);
 
-// // retirement(66)(1990);
+// retirement(66)(1990);
 
 // function interviewQuestion(job) {
 //   return function (name) {
@@ -210,8 +211,13 @@
 //   };
 // }
 
-// interviewQuestion("teacher")("Jacob");
+// var designerQuestion = interviewQuestion("designer");
+// var otherQuestion = interviewQuestion("other");
+// var teacherQuestion = interviewQuestion("teacher");
 
+// teacherQuestion("Fred");
+// designerQuestion("Rita");
+// otherQuestion("Dominic");
 
 // //////////////////////////
 // // BIND CALL AND APPLY METHODS
@@ -250,49 +256,59 @@
 
 // emilyFormal('noonday')
 
+// //////////////////////
+// // CODING CHALLENGE
 
-//////////////////////
-// CODING CHALLENGE
+(function () {
+  let randomQuestionIndex;
 
-let randomQuestionIndex
-
-
-
-
-var Question = function (questionText, answers, rightAnswer) {
+  var Question = function (questionText, answers, rightAnswer) {
     this.questionText = questionText;
     this.answers = answers;
     this.rightAnswer = rightAnswer;
-}
+  };
 
-Question.prototype.showQuestion = function() {
+  Question.prototype.showQuestion = function () {
     // let randNum = Math.round(Math.random() * 2)
-    console.log(this.questionText)
-    for(i=0; i<this.answers.length; i++) {
-        console.log(i + ": " + this.answers[i])
+    console.log(this.questionText);
+    for (i = 0; i < this.answers.length; i++) {
+      console.log(i + ": " + this.answers[i]);
     }
-}
+  };
 
-Question.prototype.checkAnswer = function(input) {
+  Question.prototype.checkAnswer = function (input) {
     if (input == this.rightAnswer) {
-        console.log("THAT'S RIGHT!");
+      console.log("THAT'S RIGHT!");
     } else {
-        console.log("Nope :(")
+      console.log("Nope :(");
     }
-}
+  };
 
-var q1 = new Question("The country with the third largest population is: ", ["United States", "China", "Mexico"], 0)
-var q2 = new Question("The country with the largest geographic space is: ", ["Canada", "Russia", "Australia"], 1)
-var q3 = new Question("This country welcomes the most tourists annually: ", ["Italy", "France", "United States"], 1)
+  var q1 = new Question(
+    "The country with the third largest population is: ",
+    ["United States", "China", "Mexico"],
+    0
+  );
+  var q2 = new Question(
+    "The country with the largest geographic space is: ",
+    ["Canada", "Russia", "Australia"],
+    1
+  );
+  var q3 = new Question(
+    "This country welcomes the most tourists annually: ",
+    ["Italy", "France", "United States"],
+    1
+  );
 
-let questionArray = [q1, q2, q3]
+  let questionArray = [q1, q2, q3];
 
-// console.log(questionArray[Math.round(Math.random() * 2)])
+  // console.log(questionArray[Math.round(Math.random() * 2)])
 
-randomQuestionIndex = Math.round(Math.random() * 2)
+  randomQuestionIndex = Math.round(Math.random() * 2);
 
-questionArray[randomQuestionIndex].showQuestion()
-// questionArray[randomQuestionIndex].showQuestion()
-let input = prompt("Enter the correct answer: ")
+  questionArray[randomQuestionIndex].showQuestion();
+  // questionArray[randomQuestionIndex].showQuestion()
+  let input = prompt("Enter the correct answer: ");
 
-questionArray[randomQuestionIndex].checkAnswer(input)
+  questionArray[randomQuestionIndex].checkAnswer(input);
+})();
