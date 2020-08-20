@@ -57,6 +57,7 @@
 
 // console.log(i)
 
+////////////////////////////////////
 // // LECTURE: BLOCKS AND IIFEs
 
 // // ES6
@@ -76,7 +77,7 @@
 
 // // console.log(c);
 
-// /////////////////
+// //////////////////////////////////
 // // Letcture: String
 
 // let firstName = 'John';
@@ -579,16 +580,87 @@ class Element {
 }
 
 class Park extends Element {
-  constructor(name, buildYear, treeCount, parkArea) {
+  constructor(name, buildYear, treeCount, sqKm) {
     super(name, buildYear);
     this.treeCount = treeCount;
-    this.parkArea = parkArea;
+    this.sqKm = sqKm;
+  }
+
+  calcTreeDensity() {
+      console.log(`${this.name} has a tree density of ${this.treeCount / this.sqKm} trees per square km`)
   }
 }
 
 class Street extends Element {
-  constructor(name, buildYear, length) {
+  constructor(name, buildYear, length = 9) {
     super(name, buildYear);
     this.length = length;
   }
+}
+
+let maycu = new Park('Maycu Park', 1974, 1700, 4.86)
+let bavier = new Park('Bavier Park', 1987, 97, 1)
+let halfHill = new Park('Half Hill Park', 1994, 389, 1.4)
+
+let imond = new Street("Imond Street", 1974)
+let feap = new Street("Feap Street", 2005, 6.39)
+let zivrata = new Street("Zivrata Street", 1982, 12)
+let jollup = new Street("Jollup Street", 2011, 3.85)
+
+let allParks = [maycu, bavier, halfHill];
+let allStreets = [imond, feap, zivrata, jollup];
+
+let calcMeanParkAge = parks => {
+    let parkMeanAge = 0;
+
+    parks.forEach(park => {
+        let age = new Date().getFullYear() - park.buildYear;
+        parkMeanAge += age;
+    });
+
+    console.log(`Our ${parks.length} parks have an average age of ${parkMeanAge / parks.length} years.`);
+}
+
+let calcStreetLength = streets => {
+    let streetTotalLength = 0;
+
+    streets.map((el, index) => {
+        streetTotalLength += el.length
+    })
+
+    console.log(`Our ${streets.length} streets have a total length of ${streetTotalLength} km with an average length of ${(streetTotalLength / streets.length)} km.`)
+}
+
+console.log("------PARKS REPORT-------")
+calcMeanParkAge(allParks)
+allParks.forEach(park => {
+    park.calcTreeDensity()
+});
+
+for (const cur of allParks) {
+    if (cur.treeCount < 1000) {
+        continue;
+    }
+    console.log(`${cur.name} has more than 1000 trees.`)
+}
+
+
+console.log("------STREETS REPORT-------")
+calcStreetLength(allStreets)
+for (const cur of allStreets) {
+    if (cur.length < 5) {
+        console.log(`${cur.name} is a tiny street.`)
+    }
+    if (cur.length >= 5 && cur.length < 8) {
+        console.log(`${cur.name} is a small street.`)
+    }
+    if (cur.length >= 8 && cur.length < 10) {
+        console.log(`${cur.name} is a normal street.`)
+    }
+    if (cur.length >= 10 && cur.length < 13) {
+        console.log(`${cur.name} is a big street.`)
+    }
+    if (cur.lengthh >= 13) {
+        console.log(`${cur.name} is a huge street.`)
+    }
 }
